@@ -1,0 +1,15 @@
+backend/.venv/
+backend/.env
+__pycache__/
+*.pyc
+frontend/node_modules/
+frontend/dist/
+launch-video/node_modules/
+launch-video/build/
+launch-video/out/stills/
+launch-video/out/check/
+launch-video/out/wedge-launch.mp4
+.impeccable/tmp/
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/

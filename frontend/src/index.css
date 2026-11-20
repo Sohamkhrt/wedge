@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scrollbar-color: #4a6d58 #0e1f16;
+  }
+  body {
+    @apply bg-box-800 font-sans text-enamel antialiased;
+    font-feature-settings: "ss01", "tnum";
+  }
+  ::selection {
+    background: #e8b21a;
+    color: #16241b;
+  }
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0e1f16;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #4a6d58;
+    border: 3px solid #0e1f16;
+    border-radius: 6px;
+  }
+  :focus-visible {
+    outline: 3px solid #e8b21a;
+    outline-offset: 3px;
+  }
+  a {
+    text-underline-offset: 3px;
+  }
+  input,
+  textarea {
+    caret-color: #d7261e;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* An enamel plate: the box's only "card". Cream, screwed to the wall. */
+  .plate {
+    @apply relative rounded-[10px] bg-enamel text-enamel-ink shadow-plate;
+  }
+  .plate-screws::before,
+  .plate-screws::after {
+    content: "";
+    @apply absolute top-2.5 h-2 w-2 rounded-full bg-enamel-deep;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.35);
+  }
+  .plate-screws::before {
+    @apply left-2.5;
+  }
+  .plate-screws::after {
+    @apply right-2.5;
+  }
+
+  .sign {
+    @apply font-sign font-extrabold uppercase leading-[0.9];
+    letter-spacing: 0.01em;
+  }
+  .field-label {
+    @apply mb-2 block font-sign text-base font-bold uppercase tracking-wide text-enamel-dim;
+  }
+  .field {
+    @apply w-full rounded-md border-2 border-box-600 bg-box-950 px-4 py-3 text-[15px] text-enamel shadow-well
+      placeholder:text-enamel-dim/50 focus:border-aspect-amber focus:outline-none;
+  }
+  .field-light {
+    @apply w-full rounded-md border-2 border-enamel-deep bg-white/70 px-4 py-3 text-[15px] text-enamel-ink
+      placeholder:text-enamel-soft/60 focus:border-enamel-ink focus:outline-none;
+  }
+  .btn-cream {
+    @apply inline-flex items-center justify-center gap-2 rounded-md bg-enamel px-5 py-3 font-sign text-lg font-bold uppercase tracking-wide text-enamel-ink shadow-plate
+      transition-transform duration-150 hover:-translate-y-px active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-line {
+    @apply inline-flex items-center justify-center gap-2 rounded-md border-2 border-enamel/40 px-5 py-3 font-sign text-lg font-bold uppercase tracking-wide text-enamel
+      transition-colors hover:border-enamel hover:bg-box-700 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .code {
+    @apply font-mono text-[12px] tracking-tight;
+  }
+}

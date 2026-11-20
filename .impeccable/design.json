@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-20T00:00:00Z",
+  "title": "Design System: Wedge",
+  "extensions": {
+    "colorMeta": {
+      "box-ground": { "role": "primary", "displayName": "Signal-Box Green", "canonical": "#1A3326", "tonalRamp": ["#0E1F16", "#132A1E", "#1A3326", "#24432F", "#2F5240", "#4A6D58", "#7E9A88", "#C3D2C8"] },
+      "enamel": { "role": "primary", "displayName": "Enamel Cream", "canonical": "#F1E9D2", "tonalRamp": ["#45503F", "#7A7A66", "#A8A28A", "#CFC6AC", "#E2D7B8", "#F1E9D2", "#F7F2E4", "#FCFAF3"] },
+      "aspect-red": { "role": "secondary", "displayName": "Aspect Red", "canonical": "#D7261E", "tonalRamp": ["#3A1310", "#6E1A15", "#A3201A", "#D7261E", "#FF4A3D", "#FF8A80", "#FFC2BC", "#FFE9E6"] },
+      "aspect-amber": { "role": "secondary", "displayName": "Aspect Amber", "canonical": "#E8B21A", "tonalRamp": ["#3D2E05", "#6E530A", "#A67D10", "#E8B21A", "#F2C94F", "#F7DA85", "#FBEAB9", "#FEF7E3"] },
+      "aspect-lamp": { "role": "secondary", "displayName": "Lamp Green", "canonical": "#3FD08A", "tonalRamp": ["#0F3322", "#175A3B", "#228A58", "#3FD08A", "#6BDDA5", "#9CE8C2", "#CBF3DE", "#ECFBF3"] },
+      "enamel-ink": { "role": "neutral", "displayName": "Enamel Ink", "canonical": "#16241B" },
+      "lever-black": { "role": "neutral", "displayName": "Lever Black", "canonical": "#151815" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Signage Display", "purpose": "Stage headlines; second clause in amber." },
+      "headline": { "displayName": "Section Nameboard", "purpose": "Section titles." },
+      "title": { "displayName": "Plate Title", "purpose": "Route-sheet titles, plate headings, lever labels." },
+      "body": { "displayName": "Reading", "purpose": "Explanatory copy, 58-64ch." },
+      "label": { "displayName": "Measured Mono", "purpose": "EV codes, ids, metrics only." }
+    },
+    "shadows": [
+      { "name": "plate", "value": "0 6px 14px -6px rgba(0,0,0,0.55)", "purpose": "Enamel plates and cream buttons." },
+      { "name": "well", "value": "0 2px 6px rgba(0,0,0,0.45) inset", "purpose": "Recessed boards, lever slots, dark fields." },
+      { "name": "lamp-halo", "value": "0 0 10px 1px currentColor", "purpose": "Lit status lamps only." }
+    ],
+    "motion": [
+      { "name": "lever-throw", "value": "300ms cubic-bezier(0.16,1,0.3,1)", "purpose": "Lever rotation and plate colour change." },
+      { "name": "drawer-slide", "value": "260ms cubic-bezier(0.16,1,0.3,1)", "purpose": "Evidence register entrance." },
+      { "name": "train-approach", "value": "16000ms ease-out cubic (rAF)", "purpose": "Train eases to the signal while the run is in progress." },
+      { "name": "train-route", "value": "9000ms ease-out cubic (rAF)", "purpose": "Train runs the cleared route while the playbook is built." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Signal Button",
+      "kind": "button",
+      "refersTo": "button-signal",
+      "description": "The one irreversible step on a stage: Dispatch, Clear the signal.",
+      "html": "<button class=\"ds-btn-signal\">Clear the signal · build route card</button>",
+      "css": ".ds-btn-signal{background:#D7261E;color:#F1E9D2;font-family:'Big Shoulders Display',Archivo,sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;letter-spacing:.025em;padding:12px 24px;border:0;border-radius:6px;box-shadow:0 6px 14px -6px rgba(0,0,0,.55);transition:transform .15s}.ds-btn-signal:hover{transform:translateY(-1px)}.ds-btn-signal:focus-visible{outline:3px solid #E8B21A;outline-offset:3px}.ds-btn-signal:disabled{background:#24432F;color:rgba(207,198,172,.6);box-shadow:none}"
+    },
+    {
+      "name": "Plate Button",
+      "kind": "button",
+      "refersTo": "button-plate",
+      "description": "Secondary action on green: Download logbook.",
+      "html": "<button class=\"ds-btn-plate\">Download logbook (.md)</button>",
+      "css": ".ds-btn-plate{background:#F1E9D2;color:#16241B;font-family:'Big Shoulders Display',Archivo,sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;letter-spacing:.025em;padding:12px 20px;border:0;border-radius:6px;box-shadow:0 6px 14px -6px rgba(0,0,0,.55);transition:transform .15s}.ds-btn-plate:hover{transform:translateY(-1px)}.ds-btn-plate:focus-visible{outline:3px solid #E8B21A;outline-offset:3px}"
+    },
+    {
+      "name": "Line Button",
+      "kind": "button",
+      "refersTo": "button-line",
+      "description": "Tertiary action on green: New run.",
+      "html": "<button class=\"ds-btn-line\">New run</button>",
+      "css": ".ds-btn-line{background:transparent;color:#F1E9D2;font-family:'Big Shoulders Display',Archivo,sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;padding:12px 20px;border:2px solid rgba(241,233,210,.4);border-radius:6px;transition:border-color .15s,background .15s}.ds-btn-line:hover{border-color:#F1E9D2;background:#24432F}.ds-btn-line:focus-visible{outline:3px solid #E8B21A;outline-offset:3px}"
+    },
+    {
+      "name": "Lever",
+      "kind": "custom",
+      "refersTo": "lever",
+      "description": "Signature control: handle in a slot over a numbered plate; pulling rotates the handle and lights the plate.",
+      "html": "<button class=\"ds-lever\" aria-pressed=\"false\"><span class=\"ds-lever-slot\"><span class=\"ds-lever-handle\"><span class=\"ds-lever-grip\"></span><span class=\"ds-lever-rod\"></span></span></span><span class=\"ds-lever-plate\"><span class=\"ds-lever-num\">1</span><span class=\"ds-lever-label\">CampusATS</span></span></button>",
+      "css": ".ds-lever{display:flex;flex-direction:column;width:200px;background:none;border:0;padding:0;cursor:pointer}.ds-lever-slot{position:relative;display:flex;height:96px;width:56px;margin:0 auto;background:#24432F;border-radius:6px 6px 0 0;box-shadow:0 2px 6px rgba(0,0,0,.45) inset}.ds-lever-handle{position:absolute;bottom:4px;left:50%;display:flex;flex-direction:column;align-items:center;transform:translateX(-50%);transform-origin:bottom;transition:transform .3s cubic-bezier(.16,1,.3,1)}.ds-lever:hover .ds-lever-handle{transform:translateX(-50%) rotate(-6deg)}.ds-lever[aria-pressed=true] .ds-lever-handle{transform:translateX(-50%) rotate(22deg)}.ds-lever-grip{width:36px;height:20px;border-radius:6px;background:#E8B21A;box-shadow:0 0 0 2px rgba(0,0,0,.4)}.ds-lever-rod{width:10px;height:60px;background:#E8B21A}.ds-lever-plate{display:flex;align-items:center;gap:12px;padding:10px 12px;background:#F1E9D2;border-radius:0 0 10px 10px;transition:background .3s}.ds-lever[aria-pressed=true] .ds-lever-plate{background:#3FD08A}.ds-lever-num{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:4px;background:#16241B;color:#F1E9D2;font:800 24px 'Big Shoulders Display',sans-serif}.ds-lever-label{font:800 20px 'Big Shoulders Display',sans-serif;text-transform:uppercase;color:#16241B}.ds-lever:focus-visible{outline:3px solid #E8B21A;outline-offset:3px}"
+    },
+    {
+      "name": "Light Field",
+      "kind": "input",
+      "refersTo": "field-light",
+      "description": "Text field on enamel plates.",
+      "html": "<input class=\"ds-field\" placeholder=\"https://competitor.com/pricing\">",
+      "css": ".ds-field{width:100%;background:rgba(255,255,255,.7);color:#16241B;border:2px solid #E2D7B8;border-radius:6px;padding:12px 16px;font:400 15px Archivo,sans-serif;caret-color:#D7261E}.ds-field::placeholder{color:rgba(69,80,63,.6)}.ds-field:focus{outline:none;border-color:#16241B}"
+    },
+    {
+      "name": "Evidence Pill",
+      "kind": "chip",
+      "refersTo": "evidence-pill",
+      "description": "Clickable EV code that opens the evidence register at that source.",
+      "html": "<button class=\"ds-ev\">EV-03</button>",
+      "css": ".ds-ev{background:#F1E9D2;color:#16241B;font:500 12px 'JetBrains Mono',monospace;padding:2px 6px;border:0;border-radius:4px;transition:background .15s}.ds-ev:hover{background:#E8B21A}.ds-ev:focus-visible{outline:3px solid #E8B21A;outline-offset:3px}"
+    },
+    {
+      "name": "Aspect Toggle",
+      "kind": "chip",
+      "refersTo": "aspect-toggle",
+      "description": "Assumption ruling: Confident / Accept risk / Unverified, each lit in its aspect.",
+      "html": "<button class=\"ds-aspect\" aria-checked=\"true\" role=\"radio\"><span class=\"ds-aspect-lamp\"></span>Unverified</button>",
+      "css": ".ds-aspect{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:2px solid rgba(22,36,27,.2);border-radius:6px;background:transparent;color:#45503F;font:700 17px 'Big Shoulders Display',sans-serif;text-transform:uppercase}.ds-aspect-lamp{width:12px;height:12px;border-radius:50%;background:rgba(22,36,27,.2)}.ds-aspect[aria-checked=true]{border-color:#D7261E;background:rgba(215,38,30,.1);color:#16241B}.ds-aspect[aria-checked=true] .ds-aspect-lamp{background:#D7261E}.ds-aspect:hover{border-color:rgba(22,36,27,.6);color:#16241B}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Signal Box",
+    "overview": "Wedge is drawn as the inside of a railway signal box. The room is painted signal-box green; everything a person reads or touches is an enamel plate, a lever, or a lamp. The AI agent is a train on the approach line, and the founder is the signalman: the run stops at a red home signal until a human pulls one of three points levers and clears the signal. Every visual decision serves that one mechanism, which is the product's actual behaviour (a LangGraph interrupt()), not a metaphor laid over it. The system is dense where it has to be read (enamel plates, timetables, route cards) and spacious around the machinery (the junction diagram, the lever frame). Colour is functional before it is decorative. Red, amber and green are signal aspects and mean exactly what they mean on a railway, and cream is the colour of anything that carries words.",
+    "keyCharacteristics": [
+      "One green room, cream enamel for everything legible.",
+      "Signal aspects (red, amber, green) used only for state.",
+      "Condensed signage capitals for every heading; a sturdy grotesque for reading; mono only for codes and measurements.",
+      "The junction diagram is the master graphic and recurs on every stage.",
+      "Real levers as the primary controls: a demo lever, three points levers, one signal lever."
+    ],
+    "rules": [
+      { "name": "The Aspect Rule", "body": "Red, amber and lamp green are signal aspects. They encode state (held, caution, clear) and never decorate. A new state reuses an aspect only if a signalman would read it the same way.", "section": "colors" },
+      { "name": "The Words-on-Enamel Rule", "body": "Long reading happens on cream plates in ink, or on green in enamel. Never put body text on an aspect colour except inside the alert that owns it.", "section": "colors" },
+      { "name": "The Nameboard Rule", "body": "Every heading is set in signage capitals and leads its block. Metadata such as route number, lens or status sits beneath the heading, never above it as a kicker.", "section": "typography" },
+      { "name": "The Mono-Means-Measured Rule", "body": "Monospace appears only for codes, ids and quantities, never as a \"technical\" costume for prose.", "section": "typography" },
+      { "name": "The No-Bevel Rule", "body": "Plates get a drop shadow only. No inset highlights, embossing or faux-metal effects that imitate enamel; the material is carried by colour, screws and type.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do put words on enamel cream or on green; keep red, amber and lamp green for state.",
+      "Do make the primary action of a stage a lever or the red signal button.",
+      "Do show the junction diagram at the top of every stage, so the visitor always knows where the train is.",
+      "Do keep metadata beneath headings (route, lens, status), with the heading leading.",
+      "Do label anything offline, cached or paraphrased, in amber, where it appears."
+    ],
+    "donts": [
+      "Don't add kickers or eyebrows above headings.",
+      "Don't imitate material with CSS bevels, embossing or texture overlays.",
+      "Don't use aspect colours as decoration or brand accents.",
+      "Don't turn the three routes into a grid of identical cards with icons.",
+      "Don't use bounce or elastic easing; levers move mechanically, with an exponential ease-out."
+    ]
+  }
+}
