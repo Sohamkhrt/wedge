@@ -2,6 +2,7 @@ import React from "react";
 import { AbsoluteFill, Composition, Sequence } from "remotion";
 import { Approach, ColdOpen, EndCard, Held, Levers, Logo, Machinery, Reframe, RouteCard } from "./scenes/Scenes";
 import { C, FPS } from "./theme";
+import { Thumbnail } from "./Thumbnail";
 
 // [component, seconds]
 const SCENES: [React.FC, number][] = [
@@ -36,5 +37,8 @@ export const WedgeLaunch: React.FC = () => {
 };
 
 export const RemotionRoot: React.FC = () => (
-  <Composition id="WedgeLaunch" component={WedgeLaunch} durationInFrames={TOTAL} fps={FPS} width={1920} height={1080} />
+  <>
+    <Composition id="WedgeLaunch" component={WedgeLaunch} durationInFrames={TOTAL} fps={FPS} width={1920} height={1080} />
+    <Composition id="Thumbnail" component={Thumbnail} durationInFrames={1} fps={FPS} width={1500} height={1000} />
+  </>
 );
